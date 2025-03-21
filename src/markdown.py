@@ -88,12 +88,19 @@ def markdown_to_html_node(markdown):
                 html_line.append(LeafNode("div", html_str))
                 #print(f"HTML line:{html_line}")
             case BlockType.HEADING:
-                test=1
+                tmp_remove = this_block.strip('#"')
+                html_line.append(LeafNode("div", f"<h1>{tmp_remove}</h1>"))
             case BlockType.CODE:
                 tmp_remove = this_block.replace("```", "")
                 html_line.append(LeafNode("div", f"<pre><code>{tmp_remove}</code></pre>"))
             case BlockType.QUOTE:
-                test=1
+                #tag "blockquote"
+                quote = ""
+                for quoteline in this_block.split('>'):
+                    quote += quoteline
+
+                html_line.append(LeafNode("blockquote", f"{quote}"))    
+                #print(f"MARK 2: {this_block}")
             case BlockType.UNORDERED_LIST:
                 test=1
             case BlockType.ORDERED_LIST:
@@ -102,3 +109,12 @@ def markdown_to_html_node(markdown):
     #print(f"TYPE html_line:{html_line}")
     return ParentNode("html", html_line)
     #tag=None,value=None,children=None,props=None
+
+def extract_title(markdown):
+    markdown_blocks = markdown_to_blocks(markdown)
+    for this_block in markdown_blocks:
+          match block_to_block_type(this_block):
+            case BlockType.HEADING:
+                return this_block.strip('#"')
+
+    raise Exception("Missing Title")
