@@ -1,6 +1,8 @@
 DATAPATH="/Users/john-paulroadman/boot.dev/staticsite/"
-SOURCE=$DATAPATH"static"
+IMAGE_SOURCE=$DATAPATH"static"
+CONTENT_SOURCE=$DATAPATH"content"
 DESTIN=$DATAPATH"public"
+
 
 #if [[ -z "$1" ]]; then
 #	echo "Usage: main.sh [source_path] [destination_path]"
@@ -11,4 +13,4 @@ DESTIN=$DATAPATH"public"
 #	exit 1 
 #fi
 
-python3 src/main.py "$SOURCE" "$DESTIN"
+python3 src/main.py "$IMAGE_SOURCE" "$DESTIN" "$CONTENT_SOURCE"

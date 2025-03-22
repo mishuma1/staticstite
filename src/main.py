@@ -1,5 +1,5 @@
 import sys
-from file_helpers import add_files, remove_files, generate_page
+from file_helpers import add_files, remove_files, generate_page, generate_pages_recursive
 import os
 from markdown import markdown_to_html_node, extract_title
 
@@ -26,19 +26,20 @@ def main():
 
 
 
-	if len(sys.argv) != 3:
-		print("Usage: main.sh [source_path] [destination_path]")
+	if len(sys.argv) != 4:
+		print("Usage: main.sh [image_source_path] [destination_path] [content_source_path]")
 		os._exit(1)
 
-	if sys.argv[1] == sys.argv[2]:
+	if sys.argv[1] == sys.argv[2] or sys.argv[3] == sys.argv[2]:
 		print("Source and Destination cannot be the same")
 		os._exit(2)
 
-	print(f"Start: Source:{sys.argv[1]}, Destination:{sys.argv[2]}")
+	print(f"Start: Image Source:{sys.argv[1]}, Destination:{sys.argv[2]}, Content Source:{sys.argv[3]} ")
 	remove_files(sys.argv[2])
 	add_files(sys.argv[1], sys.argv[2])
 
-	generate_page("content/index.md", "template.html", "public/index.html")
+	generate_pages_recursive(sys.argv[3], "template.html", sys.argv[2])
+	#generate_page("content/index.md", "template.html", "public/index.html")
 
 #Only run if this file is called directly
 if __name__ == "__main__":
