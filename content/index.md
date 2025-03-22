@@ -1,12 +1,12 @@
 # Tolkien Fan Club
 
-![JRR Tolkien sitting](/images/tolkien.png)
+![JRR Tolkien sitting](http://localhost:8888/public/images/tolkien.png)
 
 Here's the deal, **I like Tolkien**.
 
 > "I am in fact a Hobbit in all but size."
 >
-> -- J.R.R. Tolkien
+> -- **J.R.R. Tolkien**
 
 ## Blog posts
 
@@ -23,7 +23,7 @@ Here's the deal, **I like Tolkien**.
 
 ## My favorite characters (in order)
 
-1. Gandalf
+1. **Gandalf**
 2. Bilbo
 3. Sam
 4. Glorfindel

@@ -24,9 +24,7 @@ def main():
 
 #	print(f"TITLE:{extract_title(md)}")
 
-	generate_page("content/index.md", "template.html", "public/index.html")
 
-	os._exit(99)
 
 	if len(sys.argv) != 3:
 		print("Usage: main.sh [source_path] [destination_path]")
@@ -39,6 +37,8 @@ def main():
 	print(f"Start: Source:{sys.argv[1]}, Destination:{sys.argv[2]}")
 	remove_files(sys.argv[2])
 	add_files(sys.argv[1], sys.argv[2])
+
+	generate_page("content/index.md", "template.html", "public/index.html")
 
 #Only run if this file is called directly
 if __name__ == "__main__":
