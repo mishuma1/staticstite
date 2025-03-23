@@ -1,6 +1,6 @@
 # Contact the Author
 
-[Back Home](http://localhost:8888) 
+[Back Home](/public) 
 
 Give me a call anytime to chat about Tolkien!
 

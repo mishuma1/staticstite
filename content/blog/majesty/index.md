@@ -1,6 +1,6 @@
 # The Unparalleled Majesty of "The Lord of the Rings"
 
-[Back Home](/)
+[Back Home](/public)
 
 ![LOTR image artistmonkeys](http://localhost:8888/public/images/rivendell.png)
 

@@ -1,6 +1,6 @@
 # Why Tom Bombadil Was a Mistake
 
-[Back Home](/)
+[Back Home](/public)
 
 ![Tom Bombadil image](http://localhost:8888/public/images/tom.png)
 
