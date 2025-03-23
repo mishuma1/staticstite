@@ -5,6 +5,7 @@ DESTIN=$DATAPATH"doc"
 BASEPATH="/doc"
 
 
+
 #if [[ -z "$1" ]]; then
 #	echo "Usage: main.sh [source_path] [destination_path]"
 #	exit 1 
