@@ -48,7 +48,7 @@ def remove_files(location_to_delete):
 			except Exception as e:
 				print(f"Error: Unknown -> {e}")			
 
-def generate_page(from_path, template_path, dest_path):
+def generate_page(basepath, from_path, template_path, dest_path):
     if not os.path.exists(from_path):
         raise Exception(f"Markdown file not found: {from_path}")	
     if not os.path.exists(from_path):
@@ -92,6 +92,11 @@ def generate_page(from_path, template_path, dest_path):
 
     template = template.replace("{{ Title }}", title)
     template = template.replace("{{ Content }}", body)
+    #Update images and links to add basepath
+    template = template.replace("href=\'/", f"href='{basepath}/")
+    template = template.replace("src=\'/", f"src='{basepath}/")
+
+
     #print(f"FULL BODY: {template}")
 	
 	
@@ -99,7 +104,7 @@ def generate_page(from_path, template_path, dest_path):
     file = open(dest_path, "w")
     file.write(template)
 	
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(basepath, dir_path_content, template_path, dest_dir_path):
     if not os.path.exists(dir_path_content):
         raise Exception(f"Base Markdown directory not found: {dir_path_content}")	
     if not os.path.exists(template_path):
@@ -116,7 +121,7 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
         if os.path.isdir(new_base):
             print(f"New directory: {new_base} to {new_dest}")
             os.mkdir(new_dest)
-            generate_pages_recursive(new_base, template_path, new_dest)
+            generate_pages_recursive(basepath, new_base, template_path, new_dest)
         else:
             if ".md" in file:
                 #Read in and write using generate_page - change .md to .html
@@ -124,6 +129,6 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
 
                 print(f"Copy file: {new_base} to {new_dest}")
                 #shutil.copy(new_base, new_dest)
-                generate_page(new_base, template_path, new_dest)
+                generate_page(basepath, new_base, template_path, new_dest)
 
     return ""    

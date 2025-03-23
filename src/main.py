@@ -26,8 +26,8 @@ def main():
 
 
 
-	if len(sys.argv) != 4:
-		print("Usage: main.sh [image_source_path] [destination_path] [content_source_path]")
+	if len(sys.argv) != 5:
+		print("Usage: main.sh [image_source_path] [destination_path] [content_source_path] [base_http_path]")
 		os._exit(1)
 
 	if sys.argv[1] == sys.argv[2] or sys.argv[3] == sys.argv[2]:
@@ -38,7 +38,7 @@ def main():
 	remove_files(sys.argv[2])
 	add_files(sys.argv[1], sys.argv[2])
 
-	generate_pages_recursive(sys.argv[3], "template.html", sys.argv[2])
+	generate_pages_recursive(sys.argv[4], sys.argv[3], "template.html", sys.argv[2])
 	#generate_page("content/index.md", "template.html", "public/index.html")
 
 #Only run if this file is called directly

@@ -1,7 +1,8 @@
 DATAPATH="/Users/john-paulroadman/boot.dev/staticsite/"
 IMAGE_SOURCE=$DATAPATH"static"
 CONTENT_SOURCE=$DATAPATH"content"
-DESTIN=$DATAPATH"public"
+DESTIN=$DATAPATH"doc"
+BASEPATH="/doc"
 
 
 #if [[ -z "$1" ]]; then
@@ -13,4 +14,4 @@ DESTIN=$DATAPATH"public"
 #	exit 1 
 #fi
 
-python3 src/main.py "$IMAGE_SOURCE" "$DESTIN" "$CONTENT_SOURCE"
+python3 src/main.py "$IMAGE_SOURCE" "$DESTIN" "$CONTENT_SOURCE" "$BASEPATH"
